@@ -1,9 +1,8 @@
 import React from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {ScreenWrapper, SearchBar, Text, Png} from '../components';
+import {ScreenWrapper, Text, Spacer} from '../components';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
-import {HStack, VStack} from 'native-base';
-import {SubHeader, Banner, Category, ProductView} from '../layouts';
+import {HStack, VStack, Divider} from 'native-base';
 import Feather from 'react-native-vector-icons/Feather';
 import theme from '../styles/theme';
 
@@ -12,6 +11,10 @@ const SellerScreen = ({
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
+  const handleProfileClick = () => {
+    // navigation.navigate('Selling');
+    console.log('chủ tus không biết chuyển tab');
+  };
   return (
     <ScreenWrapper>
       <VStack space={5} padding={2}>
@@ -75,6 +78,57 @@ const SellerScreen = ({
               </View>
             </HStack>
           </VStack>
+          <Spacer height={20} />
+          <Text size={theme.font.sizes.medium} bold>
+            How it Works
+          </Text>
+          {/* Icon 1 */}
+          <Spacer height={5} />
+          <HStack space={5} alignItems="center" marginRight={20} marginLeft={4}>
+            <Feather name="camera" size={50} color="black" />
+            <VStack>
+              <Text size={theme.font.sizes.rm}>List in minutes. </Text>
+              <Text>
+                Snap some photos and write a great description. We'll help you
+                price your item to sell.
+              </Text>
+            </VStack>
+          </HStack>
+          {/* Icon 2 */}
+          <Spacer height={10} />
+          <HStack space={5} alignItems="center" marginRight={20} marginLeft={4}>
+            <Feather name="tag" size={50} color="black" />
+            <VStack>
+              <Text size={theme.font.sizes.rm}>
+                Get paid quickly and safely.
+              </Text>
+              <Text>
+                When your item sells, we make the payment process easy for you
+                and the buyer.
+              </Text>
+            </VStack>
+          </HStack>
+          {/* Icon 3 */}
+          <Spacer height={10} />
+          <HStack space={5} alignItems="center" marginRight={20} marginLeft={4}>
+            <Feather name="save" size={50} color="black" />
+            <VStack>
+              <Text size={theme.font.sizes.rm}>Ship it to its new home.</Text>
+              <Text>
+                Box it up, print a label directly on eBay, and say farewell.
+                It's that simple.
+              </Text>
+            </VStack>
+          </HStack>
+          <Divider marginY={2} thickness={2} />
+          <TouchableOpacity
+            style={{alignSelf: 'flex-end', marginRight: 20}}
+            onPress={handleProfileClick} 
+          >
+            <Text size={theme.font.sizes.rm} color={theme.colors.primary}>
+              Learn more
+            </Text>
+          </TouchableOpacity>
         </ScrollView>
       </VStack>
     </ScreenWrapper>
